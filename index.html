@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álbum de Fotos</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>Álbum de Fotos</h1>
+    </header>
+    <main>
+        <section id="page1" class="gallery active">
+            <img src="https://raw.githubusercontent.com/LuizGabrielDosSantos/album/refs/heads/main/pg01.png?token=GHSAT0AAAAAADBQS35USOU347ABSWR67O6KZ7PF2IA" alt="Foto 1">
+        </section>
+        <section id="page2" class="gallery">
+            <img src="https://raw.githubusercontent.com/LuizGabrielDosSantos/album/refs/heads/main/pg02.png?token=GHSAT0AAAAAADBQS35VXVBJUXFZLHBHGD36Z7PFZ3A" alt="Foto 2">
+        </section>
+        <div class="navigation">
+            <button id="prevBtn">Anterior</button>
+            <button id="nextBtn">Próximo</button>
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 Nosso Álbum de Fotos</p>
+    </footer>
+    <script>
+        const pages = document.querySelectorAll('.gallery');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentPage = 0;
+
+        function updatePage() {
+            pages.forEach((page, index) => {
+                page.classList.toggle('active', index === currentPage);
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 0) {
+                currentPage--;
+                updatePage();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < pages.length - 1) {
+                currentPage++;
+                updatePage();
+            }
+        });
+
+        updatePage();
+    </script>
+</body>
+</html>
